@@ -125,15 +125,12 @@ void keyboard_post_init_user(void) {
 char keylog_str[KEYLOGGER_LENGTH+1];
 
 void keyboard_post_init_user(void) {
-  /* rgblight_setrgb(RGB_RED); */
   debug_enable = true;
   debug_matrix = true;
 
   for (uint8_t i = 0; i < KEYLOGGER_LENGTH; i++) {
     keylog_str[i] = ' ';
   }
-
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
 
 bool caps_word_press_user(uint16_t keycode) {
@@ -277,34 +274,4 @@ bool oled_task_user(void) {
 }
 
 #endif // OLED_ENABLE
-
-
-#ifdef RGBLIGHT_ENABLE
-bool led_update_user(led_t led_state) {
-  return false; // don't run keyboard-level led code
-}
-
-uint8_t hue;
-uint8_t brightness;
-
-void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    hue = rgblight_get_hue() + 40 + rand() % (255-80);
-    brightness = 190;
-    rgblight_sethsv_range(hue, 255, brightness, 0, 2*RGBLED_NUM);
-    rgblight_set();
-  }
-}
-
-void matrix_scan_user(void) {
-  if (brightness > 0) {
-    brightness--;
-    for (uint8_t i = 0; i < RGBLED_NUM; i++) {
-      sethsv(hue, 255, brightness, &led[i]);
-    }
-    rgblight_set();
-  }
-}
-
-#endif // RGBLIGHT_ENABLE
 
