@@ -38,11 +38,11 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(4,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(4,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(3), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TT(3), KC_BSPC, LT(1,KC_TAB), LT(2,KC_ENT), LT(1,KC_ENT), LT(2,KC_SPC), KC_BSPC),
-	[1] = LAYOUT_split_3x6_3(KC_GRV, KC_NO, KC_LBRC, KC_UNDS, KC_RBRC, KC_PERC, KC_CIRC, KC_7, KC_8, KC_9, KC_EQL, KC_NO, DT_UP, KC_LCBR, KC_LPRN, KC_MINS, SC_RSPC, KC_RCBR, KC_PLUS, RSFT_T(KC_4), KC_5, KC_6, KC_SCLN, KC_BSLS, DT_DOWN, DT_PRNT, KC_LCBR, KC_ASTR, KC_RCBR, KC_COMM, KC_DOT, KC_1, KC_2, KC_3, KC_SLSH, KC_NO, KC_BSPC, KC_TAB, KC_ENT, KC_0, KC_SPC, KC_BSPC),
+	[1] = LAYOUT_split_3x6_3(KC_GRV, KC_NO, KC_LBRC, KC_UNDS, KC_RBRC, KC_PERC, KC_CIRC, KC_7, KC_8, KC_9, KC_EQL, KC_NO, DT_UP, KC_LCBR, KC_LPRN, KC_MINS, SC_RSPC, KC_GT, KC_PLUS, RSFT_T(KC_4), KC_5, KC_6, KC_SCLN, KC_BSLS, DT_DOWN, DT_PRNT, KC_LCBR, KC_ASTR, KC_RCBR, KC_DOT, KC_COMM, KC_1, KC_2, KC_3, KC_SLSH, KC_NO, KC_BSPC, KC_TAB, KC_ENT, KC_0, KC_SPC, KC_BSPC),
 	[2] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS),
-	[3] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_DEL, KC_UP, KC_TAB, KC_EQL, KC_MPRV, KC_MPLY, KC_MNXT, 0x7F, 0x81, 0x80, KC_TRNS, LCTL_T(KC_A), KC_LEFT, LT(4,KC_DOWN), LSFT_T(KC_RGHT), KC_MINS, RGB_TOG, RSFT_T(RGB_MOD), LT(4,RGB_SPI), RALT_T(RGB_HUI), RCTL_T(RGB_VAI), KC_NO, KC_TRNS, LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_NO, KC_NO, RGB_RMOD, RGB_SPD, RGB_HUD, RGB_VAD, KC_TRNS, KC_BSPC, KC_SPC, KC_ENT, KC_TRNS, KC_TRNS, KC_TRNS),
+	[3] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_DEL, KC_UP, KC_TAB, KC_EQL, KC_MPRV, KC_MPLY, KC_MNXT, 0x7F, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_MINS, RGB_TOG, RSFT_T(RGB_MOD), LT(4,RGB_SPI), RALT_T(RGB_HUI), RCTL_T(RGB_VAI), KC_MUTE, KC_TRNS, LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_NO, KC_NO, RGB_RMOD, RGB_SPD, RGB_HUD, RGB_VAD, KC_TRNS, LALT_T(KC_BSPC), LT(4,KC_SPC), LSFT_T(KC_ENT), KC_TRNS, KC_TRNS, KC_TRNS),
 	[4] = LAYOUT_split_3x6_3(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_Q, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_SPC, KC_TAB, KC_TRNS, KC_TRNS, KC_0, KC_TRNS),
-	[5] = LAYOUT_split_3x6_3(KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_MINS, KC_VOLU, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_VOLD, KC_LALT, KC_SPC, KC_ENT, KC_ENT, KC_SPC, KC_BSPC)
+	[5] = LAYOUT_split_3x6_3(KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(3), KC_LALT, KC_SPC, LT(1,KC_ENT), LT(1,KC_ENT), LCTL_T(KC_SPC), KC_BSPC)
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
@@ -77,6 +77,7 @@ void set_keylog(uint16_t keycode, keyrecord_t *record);
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   // TODO if we're in the tab-as-tab layer, apply whichever modifier is toggled at the top
+	rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue() + 64 + rand() % 128, 255, 255);
 
 //  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete
   #ifdef OLED_ENABLE
@@ -126,6 +127,7 @@ void keyboard_post_init_user(void) {
 char keylog_str[KEYLOGGER_LENGTH+1];
 
 void keyboard_post_init_user(void) {
+	/* rgblight_set_speed_noeeprom(255); */
   debug_enable = true;
   debug_matrix = true;
 
@@ -149,11 +151,12 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (!is_keyboard_master()) {
-    return OLED_ROTATION_90;  // flips the display 180 degrees if offhand
-  }
-  return OLED_ROTATION_270;
-  /* return rotation; */
+  if (is_keyboard_master()) {
+    return OLED_ROTATION_270;
+  } else {
+		// needs to be 0 or 180 for logo to render correctly across lines
+    return OLED_ROTATION_0; // flips the display 180 degrees if offhand
+	}
 }
 
 void oled_render_layer_state(void) {
