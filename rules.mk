@@ -8,7 +8,7 @@ CAPS_WORD_ENABLE = yes
 
 
 
-MOUSEKEY_ENABLE = no    # Mouse keys
+MOUSEKEY_ENABLE = yes    # Mouse keys
 
 ## for keyboards with LEDs+OLED, e.g. the crkbd
 RGB_MATRIX_ENABLE = yes

@@ -37,13 +37,16 @@ enum layers {
 /* }; */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(4,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(4,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(3), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TT(3), KC_BSPC, LT(1,KC_TAB), LT(2,KC_ENT), LT(1,KC_ENT), LT(2,KC_SPC), KC_BSPC),
-	[1] = LAYOUT_split_3x6_3(KC_GRV, KC_NO, KC_LBRC, KC_UNDS, KC_RBRC, KC_PERC, KC_CIRC, KC_7, KC_8, KC_9, KC_EQL, KC_NO, DT_UP, KC_LCBR, KC_LPRN, KC_MINS, SC_RSPC, KC_GT, KC_PLUS, RSFT_T(KC_4), KC_5, KC_6, KC_SCLN, KC_BSLS, DT_DOWN, DT_PRNT, KC_LCBR, KC_ASTR, KC_RCBR, KC_DOT, KC_COMM, KC_1, KC_2, KC_3, KC_SLSH, KC_NO, KC_BSPC, KC_TAB, KC_ENT, KC_0, KC_SPC, KC_BSPC),
-	[2] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS),
+	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(1), KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(4,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(4,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(3), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TT(3), LT(7,KC_BSPC), LGUI_T(KC_TAB), LT(2,KC_ENT), LT(6,KC_ENT), LT(1,KC_SPC), KC_BSPC),
+	[1] = LAYOUT_split_3x6_3(KC_GRV, KC_GT, KC_LBRC, KC_UNDS, KC_RBRC, KC_PERC, KC_CIRC, KC_7, KC_8, KC_9, KC_EQL, KC_TRNS, DT_UP, KC_LT, KC_LPRN, KC_MINS, SC_RSPC, KC_GT, KC_PLUS, RSFT_T(KC_4), KC_5, KC_6, KC_SCLN, KC_BSLS, DT_DOWN, DT_PRNT, KC_LCBR, KC_ASTR, KC_RCBR, KC_DOT, KC_COMM, KC_1, KC_2, KC_3, KC_SLSH, KC_EQL, KC_BSPC, KC_TAB, KC_ENT, KC_0, KC_SPC, KC_BSPC),
+	[2] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_END, KC_PGDN, KC_PGUP, KC_HOME, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS),
 	[3] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_DEL, KC_UP, KC_TAB, KC_EQL, KC_MPRV, KC_MPLY, KC_MNXT, 0x7F, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_MINS, RGB_TOG, RSFT_T(RGB_MOD), LT(4,RGB_SPI), RALT_T(RGB_HUI), RCTL_T(RGB_VAI), KC_MUTE, KC_TRNS, LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_NO, KC_NO, RGB_RMOD, RGB_SPD, RGB_HUD, RGB_VAD, KC_TRNS, LALT_T(KC_BSPC), LT(4,KC_SPC), LSFT_T(KC_ENT), KC_TRNS, KC_TRNS, KC_TRNS),
-	[4] = LAYOUT_split_3x6_3(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_Q, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_SPC, KC_TAB, KC_TRNS, KC_TRNS, KC_0, KC_TRNS),
-	[5] = LAYOUT_split_3x6_3(KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(3), KC_LALT, KC_SPC, LT(1,KC_ENT), LT(1,KC_ENT), LCTL_T(KC_SPC), KC_BSPC)
+	[4] = LAYOUT_split_3x6_3(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LGUI(KC_MINS), LGUI(KC_EQL), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, LGUI(KC_BSPC), KC_TAB, LGUI(KC_ENT), KC_TRNS, LGUI(KC_0), KC_TRNS),
+	[5] = LAYOUT_split_3x6_3(KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(3), KC_LALT, KC_SPC, LT(1,KC_ENT), LT(1,KC_ENT), LCTL_T(KC_SPC), KC_BSPC),
+	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_SLSH, KC_7, KC_8, KC_9, KC_PEQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_ESC, KC_SCLN, KC_4, KC_5, KC_6, KC_PPLS, KC_NO, KC_RSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_COMM, KC_1, KC_2, KC_3, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
+	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3)
 };
+
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -61,7 +64,7 @@ static bool cmdOn = false;
 layer_state_t layer_state_set_user(layer_state_t state) {
 	/* if (state == (1 << _CMDTAB)) { */
   if (IS_LAYER_ON_STATE(state, _CMDTAB)) {
-		register_mods(MOD_LGUI);
+		/* register_mods(MOD_LGUI); */
 		cmdOn = true;
 	} else if (cmdOn) {//prev_layer_state == (1 << _CMDTAB)) {
 		unregister_mods(MOD_LGUI);
@@ -76,16 +79,17 @@ void set_keylog(uint16_t keycode, keyrecord_t *record);
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  #ifdef OLED_ENABLE
+
   // TODO if we're in the tab-as-tab layer, apply whichever modifier is toggled at the top
 	rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue() + 64 + rand() % 128, 255, 255);
-
-//  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete
-  #ifdef OLED_ENABLE
   if (record->event.pressed) {
     set_keylog(keycode, record);
   }
   #endif
+
   const uint8_t mods = get_mods();
+	//  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete
   if (keycode == KC_BSPC) {
     static bool delkey_registered;
     if (record->event.pressed) {
@@ -106,11 +110,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         return false;
       }
     }
-  }
+	// TODO make Shift+Up/Down always be PgUp/PgDn?
+	} else if (cmdOn && keycode == KC_TAB) {
+		register_mods(MOD_LGUI);
+	}
   return true;
 }
-
-
 
 
 #ifndef OLED_ENABLE
@@ -228,7 +233,9 @@ static const char PROGMEM code_to_name[0xFF] = {
 
 void set_keylog(uint16_t keycode, keyrecord_t *record) {
   if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) ||
-      (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) { keycode = keycode & 0xFF; }
+      (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) {
+    keycode = keycode & 0xFF;
+  }
   if (keycode < 0xFF) {
     for (uint8_t i = 1; i < KEYLOGGER_LENGTH; i++) {
       keylog_str[i-1] = keylog_str[i];
