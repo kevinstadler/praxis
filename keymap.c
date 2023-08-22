@@ -21,32 +21,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum layers {
   _BASE = 0,
   _SYM,
-  /* _NUM, */
+  _NUM,
   _RNAV,
+  _MOUSE,
   _LNAV,
-  _CMDTAB,
-  _GAMING
+  _GAMING,
+  _CMDTAB
 };
 
-/* const key_override_t coln_key_override = */
-/*     ko_make_basic(MOD_MASK_SHIFT, KC_MINS, KC_ASTR); // Shift - is * */
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t ltspacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(1,KC_SPC), KC_TAB);
+const key_override_t lguispacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LGUI_T(KC_SPC), KC_TAB);
+// TODO add ctrl+up/down be pgup/pgdown
 
-/* const key_override_t** key_overrides = (const key_override_t*[]){ */
-/*     &coln_key_override, */
-/*     NULL */
-/* }; */
+const key_override_t** key_overrides = (const key_override_t*[]){
+    &delete_key_override,
+    &ltspacetab_key_override,
+    &lguispacetab_key_override,
+    NULL
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(1), KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(4,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(4,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(3), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TT(3), LT(7,KC_BSPC), LGUI_T(KC_TAB), LT(2,KC_ENT), LT(6,KC_ENT), LT(1,KC_SPC), KC_BSPC),
-	[1] = LAYOUT_split_3x6_3(KC_GRV, KC_GT, KC_LBRC, KC_UNDS, KC_RBRC, KC_PERC, KC_CIRC, KC_7, KC_8, KC_9, KC_EQL, KC_TRNS, DT_UP, KC_LT, KC_LPRN, KC_MINS, SC_RSPC, KC_GT, KC_PLUS, RSFT_T(KC_4), KC_5, KC_6, KC_SCLN, KC_BSLS, DT_DOWN, DT_PRNT, KC_LCBR, KC_ASTR, KC_RCBR, KC_DOT, KC_COMM, KC_1, KC_2, KC_3, KC_SLSH, KC_EQL, KC_BSPC, KC_TAB, KC_ENT, KC_0, KC_SPC, KC_BSPC),
-	[2] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_END, KC_PGDN, KC_PGUP, KC_HOME, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS),
-	[3] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_DEL, KC_UP, KC_TAB, KC_EQL, KC_MPRV, KC_MPLY, KC_MNXT, 0x7F, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_MINS, RGB_TOG, RSFT_T(RGB_MOD), LT(4,RGB_SPI), RALT_T(RGB_HUI), RCTL_T(RGB_VAI), KC_MUTE, KC_TRNS, LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_NO, KC_NO, RGB_RMOD, RGB_SPD, RGB_HUD, RGB_VAD, KC_TRNS, LALT_T(KC_BSPC), LT(4,KC_SPC), LSFT_T(KC_ENT), KC_TRNS, KC_TRNS, KC_TRNS),
-	[4] = LAYOUT_split_3x6_3(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LGUI(KC_MINS), LGUI(KC_EQL), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, LGUI(KC_BSPC), KC_TAB, LGUI(KC_ENT), KC_TRNS, LGUI(KC_0), KC_TRNS),
-	[5] = LAYOUT_split_3x6_3(KC_ESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, TG(5), KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(3), KC_LALT, KC_SPC, LT(1,KC_ENT), LT(1,KC_ENT), LCTL_T(KC_SPC), KC_BSPC),
-	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_SLSH, KC_7, KC_8, KC_9, KC_PEQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_ESC, KC_SCLN, KC_4, KC_5, KC_6, KC_PPLS, KC_NO, KC_RSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_COMM, KC_1, KC_2, KC_3, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
-	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3)
+	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(7,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(7,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC),
+	[1] = LAYOUT_split_3x6_3(KC_TRNS, KC_PIPE, KC_LBRC, KC_UNDS, KC_RBRC, KC_AMPR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_LPRN, KC_MINS, SC_RSPC, KC_PLUS, KC_NO, KC_RSFT, MO(2), KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_LCBR, KC_NO, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_ENT, KC_NO, KC_TRNS, KC_NO),
+	[2] = LAYOUT_split_3x6_3(KC_TRNS, KC_NO, KC_7, KC_8, KC_9, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_4, KC_5, KC_6, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_LT, KC_1, KC_2, KC_3, KC_GT, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
+	[3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, TO(4), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGUI(KC_Z), RGUI(KC_X), RGUI(KC_C), RGUI(KC_V), RGUI(KC_Y), KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
+	[4] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3),
+	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_SCLN, KC_UP, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_LSFT, KC_NO, KC_RSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_0, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_BSPC, LGUI_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC),
+	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_MINS, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TG(6), KC_BSPC, KC_TAB, KC_LGUI, KC_ENT, KC_SPC, KC_BSPC),
+	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_MINS, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TG(6), KC_BSPC, KC_TAB, KC_NO, KC_ENT, KC_0, KC_NO)
 };
-
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -59,20 +63,37 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 /*     COMBO(capslock_combo, KC_CAPS) */
 /* }; */
 
-/* static layer_state_t prev_layer_state; */
-static bool cmdOn = false;
+// https://github.com/qmk/qmk_firmware/issues/1907
+static layer_state_t prev_layer_state;
 layer_state_t layer_state_set_user(layer_state_t state) {
-	/* if (state == (1 << _CMDTAB)) { */
-  if (IS_LAYER_ON_STATE(state, _CMDTAB)) {
-		/* register_mods(MOD_LGUI); */
-		cmdOn = true;
-	} else if (cmdOn) {//prev_layer_state == (1 << _CMDTAB)) {
-		unregister_mods(MOD_LGUI);
-	  cmdOn = false;
+  #ifndef OLED_ENABLE
+	if (get_highest_layer(state) == _LNAV) {
+		// Pico Pi onboard LED
+		writePinLow(GP25); // off
+	} else {
+		writePinHigh(GP25); // on
 	}
-	/* prev_layer_state = state; */
+  #endif
+
+	if (get_highest_layer(state) == _CMDTAB) {
+		register_mods(MOD_LGUI);
+	} else if (get_highest_layer(prev_layer_state) == _CMDTAB) {
+		unregister_mods(MOD_LGUI);
+	}
+	prev_layer_state = state;
 	return state;
 }
+
+/* static bool cmdOn = false; */
+/* layer_state_t layer_state_set_user(layer_state_t state) { */
+/*   if (IS_LAYER_ON_STATE(state, _CMDTAB)) { */
+/* 		cmdOn = true; */
+/* 	} else if (cmdOn) { */
+/* 		unregister_mods(MOD_LGUI); */
+/* 	  cmdOn = false; */
+/* 	} */
+/* 	return state; */
+/* } */
 
 #ifdef OLED_ENABLE
 void set_keylog(uint16_t keycode, keyrecord_t *record);
@@ -88,32 +109,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   }
   #endif
 
-  const uint8_t mods = get_mods();
-	//  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete
-  if (keycode == KC_BSPC) {
-    static bool delkey_registered;
-    if (record->event.pressed) {
-      if (mods & MOD_MASK_SHIFT) {
-        del_mods(MOD_MASK_SHIFT);
-        register_code(KC_DEL);
-        delkey_registered = true;
-        // Reapplying modifier state so that the held shift key(s)
-        // still work even after having tapped the Backspace/Delete key.
-        set_mods(mods);
-        return false;
-      }
-    } else {
-      // In case KC_DEL is still being sent even after the release of KC_BSPC
-      if (delkey_registered) {
-        unregister_code(KC_DEL);
-        delkey_registered = false;
-        return false;
-      }
-    }
-	// TODO make Shift+Up/Down always be PgUp/PgDn?
-	} else if (cmdOn && keycode == KC_TAB) {
-		register_mods(MOD_LGUI);
-	}
+  /* const uint8_t mods = get_mods(); */
+	/* //  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete */
+  /* if (keycode == KC_BSPC) { */
+  /*   static bool delkey_registered; */
+  /*   if (record->event.pressed) { */
+  /*     if (mods & MOD_MASK_SHIFT) { */
+  /*       del_mods(MOD_MASK_SHIFT); */
+  /*       register_code(KC_DEL); */
+  /*       delkey_registered = true; */
+  /*       // Reapplying modifier state so that the held shift key(s) */
+  /*       // still work even after having tapped the Backspace/Delete key. */
+  /*       set_mods(mods); */
+  /*       return false; */
+  /*     } */
+  /*   } else { */
+  /*     // In case KC_DEL is still being sent even after the release of KC_BSPC */
+  /*     if (delkey_registered) { */
+  /*       unregister_code(KC_DEL); */
+  /*       delkey_registered = false; */
+  /*       return false; */
+  /*     } */
+  /*   } */
+	/* } else if (cmdOn && keycode == KC_TAB) { */
+		/* register_mods(MOD_LGUI); */
+	/* } */
   return true;
 }
 
@@ -180,14 +200,17 @@ void oled_render_layer_state(void) {
         case _RNAV:
             oled_write_ln_P(PSTR("Nav"), true);
             break;
+        case _MOUSE:
+            oled_write_ln_P(PSTR("Mouse"), true);
+            break;
         case _LNAV:
             oled_write_ln_P(PSTR("LNav"), true);
             break;
-        case _CMDTAB:
-            oled_write_ln_P(PSTR("Cmd"), true);
-            break;
         case _GAMING:
             oled_write_ln_P(PSTR("Game"), true);
+            break;
+        case _CMDTAB:
+            oled_write_ln_P(PSTR("Cmd"), true);
             break;
     }
     /* if (is_caps_word_on()) { */
