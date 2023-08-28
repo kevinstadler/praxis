@@ -42,14 +42,15 @@ const key_override_t** key_overrides = (const key_override_t*[]){
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(7,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(7,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC),
+	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_R), LT(7,KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), LT(7,KC_E), RALT_T(KC_I), RCTL_T(KC_O), KC_SCLN, TT(5), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC),
 	[1] = LAYOUT_split_3x6_3(KC_TRNS, KC_PIPE, KC_LBRC, KC_UNDS, KC_RBRC, KC_AMPR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_LPRN, KC_MINS, SC_RSPC, KC_PLUS, KC_NO, KC_RSFT, MO(2), KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_LCBR, KC_NO, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_ENT, KC_NO, KC_TRNS, KC_NO),
-	[2] = LAYOUT_split_3x6_3(KC_TRNS, KC_NO, KC_7, KC_8, KC_9, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_4, KC_5, KC_6, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_LT, KC_1, KC_2, KC_3, KC_GT, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
+	[2] = LAYOUT_split_3x6_3(KC_TRNS, KC_COMM, KC_7, KC_8, KC_9, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_4, KC_5, KC_6, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_SCLN, KC_1, KC_2, KC_3, KC_COLN, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
 	[3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, TO(4), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGUI(KC_Z), RGUI(KC_X), RGUI(KC_C), RGUI(KC_V), RGUI(KC_Y), KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
 	[4] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3),
-	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_SCLN, KC_UP, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, KC_RGHT, KC_LSFT, KC_NO, KC_RSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_0, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_BSPC, LGUI_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC),
+	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_MINS, KC_UP, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, LSFT_T(KC_RGHT), KC_NO, RGB_TOG, RGB_MOD, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_0, KC_NO, RGB_RMOD, RGB_SAD, RGB_VAD, RGB_SPD, KC_TRNS, KC_BSPC, LGUI_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC),
 	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_MINS, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TG(6), KC_BSPC, KC_TAB, KC_LGUI, KC_ENT, KC_SPC, KC_BSPC),
-	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_MINS, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TG(6), KC_BSPC, KC_TAB, KC_NO, KC_ENT, KC_0, KC_NO)
+	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_MINS, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TG(6), KC_BSPC, KC_TAB, KC_NO, KC_ENT, KC_0, KC_NO),
+	[8] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(7,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(7,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC)
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
@@ -105,7 +106,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   // TODO if we're in the tab-as-tab layer, apply whichever modifier is toggled at the top
 	rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue() + 64 + rand() % 128, 255, 255);
   if (record->event.pressed) {
-    set_keylog(keycode, record);
+    /* set_keylog(keycode, record); */
   }
   #endif
 
@@ -177,26 +178,27 @@ bool caps_word_press_user(uint16_t keycode) {
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (is_keyboard_master()) {
-    return OLED_ROTATION_270;
+    /* return OLED_ROTATION_270; */
+    return OLED_ROTATION_0;
   } else {
 		// needs to be 0 or 180 for logo to render correctly across lines
-    return OLED_ROTATION_0; // flips the display 180 degrees if offhand
+    return OLED_ROTATION_270;
+    /* return OLED_ROTATION_0; // flips the display 180 degrees if offhand */
 	}
 }
 
 void oled_render_layer_state(void) {
     // TODO don't get highest layer, but check if any of the layers is on but don't render Cmd layer unless it's the only thing that's active
     switch (get_highest_layer(layer_state)) {
-    /* switch (layer_state) { */
         case _BASE:
-            oled_write_P(PSTR("Alpha"), true);
+        /*     oled_write_P(PSTR("Alpha"), true); */
             break;
         case _SYM:
             oled_write_ln_P(PSTR("Sym"), true);
             break;
-        /* case (1 << _NUM): */
-        /*     oled_write_ln_P(PSTR("Num"), true); */
-        /*     break; */
+        case _NUM:
+            oled_write_ln_P(PSTR("Num"), true);
+            break;
         case _RNAV:
             oled_write_ln_P(PSTR("Nav"), true);
             break;
@@ -210,24 +212,24 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("Game"), true);
             break;
         case _CMDTAB:
-            oled_write_ln_P(PSTR("Cmd"), true);
+            /* oled_write_ln_P(PSTR("Cmd"), true); */
             break;
     }
     /* if (is_caps_word_on()) { */
     /*   oled_write_P(PSTR("CAPS"), true); */
     /* } else { */
       const uint8_t mods = get_mods();
-      if (mods & MOD_MASK_SHIFT) {
-        oled_write_P(PSTR("Sh"), true);
-      }
-      if (mods & MOD_MASK_ALT) {
-        oled_write_P(PSTR("Al"), true);
-      }
       if (mods & MOD_MASK_GUI) {
-        oled_write_P(PSTR("Cm"), true);
+        oled_write_P(PSTR("Cmd"), true);
       }
       if (mods & MOD_MASK_CTRL) {
-        oled_write_P(PSTR("Ct"), true);
+        oled_write_P(PSTR("Ctl"), true);
+      }
+      if (mods & MOD_MASK_ALT) {
+        oled_write_P(PSTR("Alt"), true);
+      }
+      if (mods & MOD_MASK_SHIFT) {
+        oled_write_P(PSTR("Sh"), true);
       }
     /* } */
     oled_write_P(PSTR("\n"), false);
@@ -291,21 +293,142 @@ void render_bootmagic_status(bool status) {
     }
 }
 
-void oled_render_logo(void) {
+
+#include <unistd.h>
+
+int timer = 0;
+/* char wpm_text[5]; */
+int x = 31;
+int currwpm = 0;
+int vert_count = 0;
+
+//=============  USER CONFIG PARAMS  ===============
+float max_wpm = 110.0f; //WPM value at the top of the graph window
+int graph_refresh_interval = 120; //in milliseconds
+int graph_area_fill_interval = 2; //determines how dense the horizontal lines under the graph line are; lower = more dense
+int vert_interval = 2; //determines frequency of vertical lines under the graph line
+bool vert_line = true; //determines whether to draw vertical lines
+int graph_line_thickness = 1; //determines thickness of graph line in pixels
+//=============  END USER PARAMS  ===============
+
+void oled_render_wpm(void) {
+	//get current WPM value
+	currwpm = get_current_wpm();
+	
+	//check if it's been long enough before refreshing graph
+	if(timer_elapsed(timer) > graph_refresh_interval){
+	
+		// main calculation to plot graph line
+		x = 32 - ((currwpm / max_wpm) * 32);
+		
+		//first draw actual value line
+		for(int i = 0; i <= graph_line_thickness - 1; i++){
+			oled_write_pixel(126, x + i, true);
+		}
+		
+		//then fill in area below the value line
+		if(vert_line){
+			if(vert_count == vert_interval){
+				vert_count = 0;
+				while(x <= 32){
+					oled_write_pixel(126, x, true);
+					x++;
+				}
+			} else {
+				for(int i = 32; i > x; i--){
+					if(i % graph_area_fill_interval == 0){
+						oled_write_pixel(126, i, true);
+					}
+				}
+				vert_count++;
+			}
+		} else {
+			for(int i = 32; i > x; i--){
+				if(i % graph_area_fill_interval == 0){
+					oled_write_pixel(126, i, true);
+				}
+			}
+		}
+		
+		//then move the entire graph one pixel to the LEFT
+		oled_pan(true); 
+		
+		//refresh the timer for the next iteration
+		timer = timer_read();
+		
+	}
+	
+	//format current WPM value into a printable string
+	/* sprintf(wpm_text,"%i", currwpm); */
+	
+	//formatting for triple digit WPM vs double digits, then print WPM readout
+	if (currwpm > 0) {
+		// clear box around the text
+		for (uint8_t i = 0; i < 43; i++) {
+			oled_write_pixel(i, 22, false);
+			oled_write_pixel(i, 23, false);
+		}
+		for (uint8_t i = 24; i < 32; i++) {
+			oled_write_pixel(42, i, false);
+		}
+
+	oled_set_cursor(0, 3);
+		oled_write_P(PSTR("WPM: "), false);
+		oled_set_cursor(4, 3);
+		oled_write(get_u8_str(currwpm, ' '), false);
+		/* oled_write(wpm_text, false); */
+	}
+	if(currwpm >= 100){
+	} else if (currwpm >= 10){
+		oled_write_P(PSTR(" "), false);
+	} else if (currwpm > 0) {
+		oled_write_P(PSTR("  "), false);
+	}
+}
+
+void oled_render_solid_logo(void) {
     static const char PROGMEM crkbd_logo[] = {
-        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
-        0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4,
-        0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
+        0x80, 0x81, 0x82, 0x83, 0x84,
+        0xa0, 0xa1, 0xa2, 0xa3, 0xa4,
+        0xc0, 0xc1, 0xc2, 0xc3, 0xc4,
+        0};
+    oled_write_P(crkbd_logo, false);
+}
+void oled_render_full_logo(void) {
+		oled_set_cursor(1, 1);
+    static const char PROGMEM crkbd_logo[] = {
+        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90,
+        0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0,
+        0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0,
         0};
     oled_write_P(crkbd_logo, false);
 }
 
+void oled_render_outline_logo(void) {
+    static const char PROGMEM font_logo[] = {0x91, 0x92, 0x93, 0x94, 0x95, 0xb1, 0xb2, 0xb3, 0xb4, 0xb5, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0};
+    oled_write_P(font_logo, false);
+}
+
+void oled_render_kapi_logo(void) {
+    static const char PROGMEM font_kapi_logo[2][16] = {
+        {0x96, 0x97, 0x98, 0x99, 0x9a, 0xb6, 0xb7, 0xb8, 0xb9, 0xba, 0xd6, 0xd7, 0xd8, 0xd9, 0xda, 0},
+        {0x9b, 0x9c, 0x9d, 0x9e, 0x9f, 0xbb, 0xbc, 0xbd, 0xbe, 0xbf, 0xdb, 0xdc, 0xdd, 0xde, 0xdf, 0}
+    };
+    oled_write_P(font_kapi_logo[get_current_wpm() % 2], false);
+}
+
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_layer_state();
-        oled_render_keylog();
+        /* oled_render_layer_state(); */
+        /* oled_render_keylog(); */
+				oled_render_wpm();
     } else {
-        oled_render_logo();
+        oled_set_cursor(0, 0);
+        /* oled_render_solid_logo(); */
+        oled_render_outline_logo();
+				oled_write_ln_P(PSTR("crkbd"), false);
+        oled_set_cursor(0, 10);
+        oled_render_kapi_logo();
     }
     return false;
 }
