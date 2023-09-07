@@ -19,8 +19,8 @@ LTO_ENABLE      = yes
 
 
 # squeeze firmware size: https://github.com/qmk/qmk_firmware/blob/master/docs/squeezing_avr.md
-# CONSOLE_ENABLE = no
-# COMMAND_ENABLE = no
-# EXTRAKEY_ENABLE = no
-# AVR_USE_MINIMAL_PRINTF = yes
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+AVR_USE_MINIMAL_PRINTF = yes
+SPACE_CADET_ENABLE = no
 

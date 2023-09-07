@@ -26,7 +26,8 @@ enum layers {
   _MOUSE,
   _LNAV,
   _GAMING,
-  _CMDTAB
+  _CMDTAB,
+  _QWERTY
 };
 
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
@@ -42,15 +43,15 @@ const key_override_t** key_overrides = (const key_override_t*[]){
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_R), LT(7,KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), LT(7,KC_E), RALT_T(KC_I), RCTL_T(KC_O), KC_SCLN, TT(5), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC),
-	[1] = LAYOUT_split_3x6_3(KC_TRNS, KC_PIPE, KC_LBRC, KC_UNDS, KC_RBRC, KC_AMPR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_LPRN, KC_MINS, SC_RSPC, KC_PLUS, KC_NO, KC_RSFT, MO(2), KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_LCBR, KC_NO, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_ENT, KC_NO, KC_TRNS, KC_NO),
-	[2] = LAYOUT_split_3x6_3(KC_TRNS, KC_COMM, KC_7, KC_8, KC_9, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_4, KC_5, KC_6, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_SCLN, KC_1, KC_2, KC_3, KC_COLN, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
-	[3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, TO(4), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGUI(KC_Z), RGUI(KC_X), RGUI(KC_C), RGUI(KC_V), RGUI(KC_Y), KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
+	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, TG(8), KC_ESC, LCTL_T(KC_A), LALT_T(KC_R), LT(7,KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), LT(7,KC_E), RALT_T(KC_I), RCTL_T(KC_O), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC),
+	[1] = LAYOUT_split_3x6_3(KC_TRNS, KC_PIPE, KC_LBRC, KC_UNDS, KC_RBRC, KC_AMPR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_EQL, KC_LPRN, KC_MINS, KC_RPRN, KC_PLUS, KC_NO, KC_RSFT, MO(2), KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_LCBR, KC_NO, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_ENT, KC_NO, KC_TRNS, KC_NO),
+	[2] = LAYOUT_split_3x6_3(LALT(KC_GRV), KC_COMM, KC_7, KC_8, KC_9, KC_DOT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_SCLN, KC_4, KC_5, KC_6, KC_PLUS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_EQL, KC_TRNS, KC_NO, KC_SCLN, KC_1, KC_2, KC_3, KC_COLN, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO),
+	[3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, MO(4), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGUI(KC_Z), RGUI(KC_X), RGUI(KC_C), RGUI(KC_V), RGUI(KC_Y), KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO),
 	[4] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3),
-	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_MINS, KC_UP, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, LCTL_T(KC_A), KC_LEFT, KC_DOWN, LSFT_T(KC_RGHT), KC_NO, RGB_TOG, RGB_MOD, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_0, KC_NO, RGB_RMOD, RGB_SAD, RGB_VAD, RGB_SPD, KC_TRNS, KC_BSPC, LGUI_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC),
+	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_UP, KC_MINS, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_LSFT, KC_NO, RGB_TOG, RGB_MOD, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_0, KC_NO, RGB_RMOD, RGB_SAD, RGB_VAD, RGB_SPD, KC_TRNS, KC_BSPC, LGUI_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC),
 	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_MINS, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TG(6), KC_BSPC, KC_TAB, KC_LGUI, KC_ENT, KC_SPC, KC_BSPC),
 	[7] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_MINS, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TG(6), KC_BSPC, KC_TAB, KC_NO, KC_ENT, KC_0, KC_NO),
-	[8] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(7,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(7,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC)
+	[8] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_TRNS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(7,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(7,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, LGUI_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC)
 };
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
@@ -176,22 +177,11 @@ bool caps_word_press_user(uint16_t keycode) {
     return true;
 }
 
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (is_keyboard_master()) {
-    /* return OLED_ROTATION_270; */
-    return OLED_ROTATION_0;
-  } else {
-		// needs to be 0 or 180 for logo to render correctly across lines
-    return OLED_ROTATION_270;
-    /* return OLED_ROTATION_0; // flips the display 180 degrees if offhand */
-	}
-}
-
 void oled_render_layer_state(void) {
-    // TODO don't get highest layer, but check if any of the layers is on but don't render Cmd layer unless it's the only thing that's active
+    // https://www.reddit.com/r/olkb/comments/o5924u/get_heighest_layer_and_default_layer_change/h2pq9rd/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
     switch (get_highest_layer(layer_state)) {
         case _BASE:
-        /*     oled_write_P(PSTR("Alpha"), true); */
+            oled_write_P(PSTR("Alpha"), true);
             break;
         case _SYM:
             oled_write_ln_P(PSTR("Sym"), true);
@@ -212,27 +202,30 @@ void oled_render_layer_state(void) {
             oled_write_ln_P(PSTR("Game"), true);
             break;
         case _CMDTAB:
-            /* oled_write_ln_P(PSTR("Cmd"), true); */
+            oled_write_ln_P(PSTR("Cmd"), true);
+            break;
+        case _QWERTY:
+            oled_write_ln_P(PSTR("QWERT"), false);
             break;
     }
     /* if (is_caps_word_on()) { */
     /*   oled_write_P(PSTR("CAPS"), true); */
     /* } else { */
-      const uint8_t mods = get_mods();
-      if (mods & MOD_MASK_GUI) {
-        oled_write_P(PSTR("Cmd"), true);
-      }
-      if (mods & MOD_MASK_CTRL) {
-        oled_write_P(PSTR("Ctl"), true);
-      }
-      if (mods & MOD_MASK_ALT) {
-        oled_write_P(PSTR("Alt"), true);
-      }
-      if (mods & MOD_MASK_SHIFT) {
-        oled_write_P(PSTR("Sh"), true);
-      }
+      /* const uint8_t mods = get_mods(); */
+      /* if (mods & MOD_MASK_GUI) { */
+      /*   oled_write_P(PSTR("Cmd"), true); */
+      /* } */
+      /* if (mods & MOD_MASK_CTRL) { */
+      /*   oled_write_P(PSTR("Ctl"), true); */
+      /* } */
+      /* if (mods & MOD_MASK_ALT) { */
+      /*   oled_write_P(PSTR("Alt"), true); */
+      /* } */
+      /* if (mods & MOD_MASK_SHIFT) { */
+      /*   oled_write_P(PSTR("Sh"), true); */
+      /* } */
     /* } */
-    oled_write_P(PSTR("\n"), false);
+    /* oled_write_P(PSTR("\n"), false); */
 }
 
 
@@ -417,18 +410,27 @@ void oled_render_kapi_logo(void) {
     oled_write_P(font_kapi_logo[get_current_wpm() % 2], false);
 }
 
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+  if (is_keyboard_master()) {
+    return OLED_ROTATION_270;
+  } else {
+		// needs to be 0 or 180 for logo to render correctly across lines
+    return OLED_ROTATION_0;
+	}
+}
+
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        /* oled_render_layer_state(); */
-        /* oled_render_keylog(); */
-				oled_render_wpm();
-    } else {
         oled_set_cursor(0, 0);
         /* oled_render_solid_logo(); */
         oled_render_outline_logo();
-				oled_write_ln_P(PSTR("crkbd"), false);
+				oled_write_ln_P(PSTR("crkbd\n"), false);
+        oled_render_layer_state();
         oled_set_cursor(0, 10);
         oled_render_kapi_logo();
+    } else {
+        /* oled_render_keylog(); */
+				oled_render_wpm();
     }
     return false;
 }
