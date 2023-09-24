@@ -8,7 +8,10 @@
 #define TAPPING_FORCE_HOLD
 // 150 still resulted in fi rolls instead of I, so reduce further to trigger shift more easily
 // 145 still had sk -> *
-#define TAPPING_TERM 140
+// oh the QWERTY days...
+/* #define TAPPING_TERM 140 */
+// still slo on colemak
+#define TAPPING_TERM 160
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TOGGLE 1
 
@@ -38,4 +41,8 @@
 
 // squeeze firmware size
 #define NO_ACTION_ONESHOT
+
+// no effect from these?
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
 
