@@ -18,68 +18,42 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-/* enum qk_keycode_defines KC_MAINMOD = KC_LCTL; */
-/* enum mods_5bit TAB_MOD = MOD_LALT; */
-// LGUI_T(kc) is just MT(MOD_LGUI, kc) !!
-
-#ifdef OS_DETECTION_ENABLE
-// check if we're on Mac
-bool process_detected_host_os_kb(os_variant_t detected_os) {
-    if (detected_os == OS_MACOS) {
-        KC_MAINMOD = KC_LGUI;
-        TAB_MOD = MOD_LGUI;
-    }
-    return true;
-}
-#endif
-
 enum layers {
     _BASE = 0,
     _SYM,
     _NUM,
     _RNAV,
-    _MOUSE,
-    _LNAV,
-    _GAMING,
+    _MOUSE,// + F keys
+    _LNAV,// + media keys
     _ALTSYM,
-    _QWERTY,
-    _CMDTAB
+    _QWERTY
 };
 
-// :s/LGUI_T/MAIN_T/g
-// :s/KC_LGUI/KC_MAIN/g
-
+// ; gets mapped to - but S-; stays :, gotta map it explicitly to underscore 
+// (but it's swapped on the OS side, so actually send colon!?)
+const key_override_t underscore_override = ko_make_basic(MOD_MASK_SHIFT, KC_SCLN, KC_UNDS);
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t ltspacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(1,KC_SPC), KC_TAB);
-const key_override_t lguispacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, MAIN_T(KC_SPC), KC_TAB);
-// TODO add ctrl+up/down be pgup/pgdown
+const key_override_t lguispacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LGUI_T(KC_SPC), KC_TAB);
 
 const key_override_t** key_overrides = (const key_override_t*[]){
-    &delete_key_override,
+        &underscore_override,
+        &delete_key_override,
         &ltspacetab_key_override,
         &lguispacetab_key_override,
         NULL
 };
 
-#include "praxis.c"
-/* const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { */
-/* 	[0] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, TT(8), KC_ESC, LCTL_T(KC_A), LT(7,KC_R), LT(9,KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), LT(9,KC_E), LT(7,KC_I), RCTL_T(KC_O), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, LT(5,KC_BSLS), KC_BSPC, MAIN_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC), */
-/* 	[1] = LAYOUT_split_3x6_3(KC_TRNS, KC_PIPE, KC_LBRC, KC_COLN, KC_RBRC, KC_AMPR, KC_NO, KC_NO, KC_NO, KC_NO, KC_EQL, KC_NO, KC_TRNS, KC_EQL, KC_LPRN, KC_MINS, SC_RSPC, KC_PLUS, KC_NO, KC_RSFT, MO(2), KC_NO, KC_SCLN, KC_BSLS, KC_NO, KC_NO, KC_LCBR, KC_NO, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_ENT, KC_NO, KC_TRNS, KC_NO), */
-/* 	[2] = LAYOUT_split_3x6_3(LALT(KC_GRV), KC_TRNS, KC_7, KC_8, KC_9, KC_COLN, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_4, KC_5, KC_6, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_COMM, KC_1, KC_2, KC_3, KC_DOT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_BSPC, KC_SPC, KC_P0, KC_NO, KC_NO, KC_NO), */
-/* 	[3] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_NO, KC_ESC, KC_LCTL, KC_LALT, KC_MAIN, KC_LSFT, MO(4), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, SGUI(KC_3), SGUI(KC_4), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RGUI(KC_Z), RGUI(KC_X), RGUI(KC_C), RGUI(KC_V), RGUI(KC_Y), KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO), */
-/* 	[4] = LAYOUT_split_3x6_3(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3), */
-/* 	[5] = LAYOUT_split_3x6_3(KC_F14, KC_F15, KC_UP, KC_SCLN, KC_EQL, KC_T, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_LSFT, KC_NO, RGB_TOG, RGB_MOD, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_V, KC_NO, RGB_RMOD, RGB_SAD, RGB_VAD, RGB_SPD, KC_TRNS, KC_BSPC, MAIN_T(KC_SPC), KC_ENT, KC_ENT, KC_SPC, KC_BSPC), */
-/* 	[6] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_NO, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_MINS, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TG(6), KC_BSPC, KC_TAB, KC_MAIN, KC_ENT, KC_SPC, KC_BSPC), */
-	/* [7] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, KC_A, KC_S, KC_D, LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), KC_K, KC_L, KC_SCLN, KC_TRNS, KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_NO, KC_BSPC, KC_TAB, KC_ENT, KC_ENT, KC_SPC, KC_BSPC), */
-	/* [8] = LAYOUT_split_3x6_3(KC_GRV, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_TRNS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LT(9,KC_D), LSFT_T(KC_F), KC_G, KC_H, RSFT_T(KC_J), LT(9,KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, TT(5), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(5), KC_BSPC, MAIN_T(KC_TAB), LT(3,KC_ENT), KC_ENT, LT(1,KC_SPC), KC_BSPC), */
-	/* [9] = LAYOUT_split_3x6_3(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_MINS, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TAB, KC_NO, KC_ENT, KC_0, KC_NO) */
-/* }; */
+/* enum qk_keycode_defines KC_MAINMOD = KC_LCTL; */
+/* enum mods_5bit TAB_MOD = MOD_LALT; */
+// LGUI_T(kc) is just MT(MOD_LGUI, kc) !!
+#define MAIN_T LGUI_T
+#define KC_MAIN KC_LGUI
+#define MOD_TAB MOD_LGUI
+// :s/LGUI_T/MAIN_T/g
+// :s/KC_LGUI/KC_MAIN/g
 
-/* const uint16_t PROGMEM capslock_combo[] = {LT(4,KC_D), LT(4,KC_K), 
- * COMBO_END}; */
-/* combo_t key_combos[COMBO_COUNT] = { */
-/*     COMBO(capslock_combo, KC_CAPS) */
-/* }; */
+#include "praxis.c"
 
 // https://github.com/qmk/qmk_firmware/issues/1907
 static layer_state_t prev_layer_state;
@@ -94,11 +68,11 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
 #endif
 
-    if (get_highest_layer(state) == _CMDTAB) {
-        register_mods(MOD_TAB);
-    } else if (get_highest_layer(prev_layer_state) == _CMDTAB) {
-        unregister_mods(MOD_TAB);
-    }
+    /* if (get_highest_layer(state) == _CMDTAB) { */
+    /*     register_mods(MOD_TAB); */
+    /* } else if (get_highest_layer(prev_layer_state) == _CMDTAB) { */
+    /*     unregister_mods(MOD_TAB); */
+    /* } */
     if (IS_LAYER_ON_STATE(state, _ALTSYM) && IS_LAYER_OFF_STATE(state, _QWERTY)) {
         register_mods(MOD_LALT);
         state = state | (1 << _QWERTY);

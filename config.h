@@ -36,17 +36,6 @@
     #define OLED_FONT_H "keyboards/crkbd/rev1/keymaps/praxis/glcdfont.c"
         #define OLED_FADE_OUT
         #define OLED_FADE_OUT_INTERVAL 15
-
-    // we're on mac
-    #define MAIN_T LGUI_T
-    #define KC_MAIN KC_LGUI
-    #define MOD_TAB MOD_LGUI
-#else
-    // we're on Windoze
-    #define MAIN_T LCTL_T // ends up mapped to Ctrl
-    #define KC_MAIN KC_LCTL
-    #define MOD_TAB MOD_LALT
-    #define MOD_SYM KC_LGUI // ends up mapped to alt
 #endif
 
 
