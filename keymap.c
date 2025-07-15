@@ -36,12 +36,11 @@ const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC
 const key_override_t ltspacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(1,KC_SPC), KC_TAB);
 const key_override_t lguispacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LGUI_T(KC_SPC), KC_TAB);
 
-const key_override_t** key_overrides = (const key_override_t*[]){
+const key_override_t* key_overrides[] = {
         &underscore_override,
         &delete_key_override,
         &ltspacetab_key_override,
         &lguispacetab_key_override,
-        NULL
 };
 
 /* enum qk_keycode_defines KC_MAINMOD = KC_LCTL; */
