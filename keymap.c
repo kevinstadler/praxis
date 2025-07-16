@@ -18,26 +18,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+#include "keymap_us_international.h"
+
 enum layers {
     _BASE = 0,
+    _QWERTY,
     _SYM,
+    _MATH,
     _NUM,
     _RNAV,
     _MOUSE,// + F keys
-    _LNAV,// + media keys
-    _ALTSYM,
-    _QWERTY
+    _LNAV// + media keys
 };
 
 // ; gets mapped to - but S-; stays :, gotta map it explicitly to underscore 
 // (but it's swapped on the OS side, so actually send colon!?)
-const key_override_t underscore_override = ko_make_basic(MOD_MASK_SHIFT, KC_SCLN, KC_UNDS);
+/* const key_override_t underscore_override = ko_make_basic(MOD_MASK_SHIFT, KC_SCLN, KC_UNDS); */ // don't use on windows
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t ltspacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(1,KC_SPC), KC_TAB);
 const key_override_t lguispacetab_key_override = ko_make_basic(MOD_MASK_SHIFT, LGUI_T(KC_SPC), KC_TAB);
 
 const key_override_t* key_overrides[] = {
-        &underscore_override,
+        /* &underscore_override, */
         &delete_key_override,
         &ltspacetab_key_override,
         &lguispacetab_key_override,
@@ -55,7 +57,7 @@ const key_override_t* key_overrides[] = {
 #include "praxis.c"
 
 // https://github.com/qmk/qmk_firmware/issues/1907
-static layer_state_t prev_layer_state;
+/* static layer_state_t prev_layer_state; */
 
 layer_state_t layer_state_set_user(layer_state_t state) {
 #ifndef OLED_ENABLE
@@ -72,14 +74,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     /* } else if (get_highest_layer(prev_layer_state) == _CMDTAB) { */
     /*     unregister_mods(MOD_TAB); */
     /* } */
-    if (IS_LAYER_ON_STATE(state, _ALTSYM) && IS_LAYER_OFF_STATE(state, _QWERTY)) {
-        register_mods(MOD_LALT);
-        state = state | (1 << _QWERTY);
-    } else if (IS_LAYER_ON_STATE(prev_layer_state, _ALTSYM) && IS_LAYER_OFF_STATE(state, _ALTSYM)) {
-        unregister_mods(MOD_LALT);
-        state = state & ~(1 << _QWERTY);
-    }
-    prev_layer_state = state;
     return state;
 }
 
@@ -99,14 +93,23 @@ void set_keylog(uint16_t keycode, keyrecord_t *record);
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  #ifdef OLED_ENABLE
-
-  // TODO if we're in the tab-as-tab layer, apply whichever modifier is toggled at the top
-  rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue() + 64 + rand() % 128, 255, 255);
   if (record->event.pressed) {
-    /* set_keylog(keycode, record); */
+    #ifdef OLED_ENABLE
+    rgb_matrix_sethsv_noeeprom(rgb_matrix_get_hue() + 64 + rand() % 128, 255, 255);
+    #endif
+    // set_keylog(keycode, record);
+    switch (keycode) {
+      case QK_MACRO_0:
+        SEND_STRING("' ");
+        return false;
+      case QK_MACRO_1:
+        SEND_STRING("` ");
+        return false;
+      case QK_MACRO_2:
+        SEND_STRING("^ ");
+        return false;
+    }
   }
-  #endif
 
   /* const uint8_t mods = get_mods(); */
   /* //  https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-idshift-backspace-for-delete */
@@ -164,14 +167,19 @@ bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
-        case KC_MINS:
+        /* case KC_MINS: */
             add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
             return true;
+
+        // breaking chars
         case KC_ENTER:
         case KC_ESC:
             return false;
+
+        // non-shifted chars
+        default:
+          return true;
     }
-    return true;
 }
 
 void oled_render_layer_state(void) {
@@ -180,8 +188,14 @@ void oled_render_layer_state(void) {
         case _BASE:
             oled_write_P(PSTR("Alpha"), true);
             break;
+        case _QWERTY:
+            oled_write_ln_P(PSTR("QWERT"), false);
+            break;
         case _SYM:
             oled_write_ln_P(PSTR("Sym"), true);
+            break;
+        case _MATH:
+            oled_write_ln_P(PSTR("Math"), true);
             break;
         case _NUM:
             oled_write_ln_P(PSTR("Num"), true);
@@ -194,22 +208,6 @@ void oled_render_layer_state(void) {
             break;
         case _LNAV:
             oled_write_ln_P(PSTR("LNav"), true);
-            break;
-        case _GAMING:
-            oled_write_ln_P(PSTR("Game"), true);
-            break;
-        case _QWERTY:
-            if (IS_LAYER_ON(_ALTSYM)) {
-              oled_write_ln_P(PSTR("Punct"), true);
-            } else {
-              oled_write_ln_P(PSTR("QWERT"), false);
-            }
-            break;
-        case _ALTSYM:
-            oled_write_ln_P(PSTR("AltSym"), true);
-            break;
-        case _CMDTAB:
-            oled_write_ln_P(PSTR("Cmd"), true);
             break;
     }
     /* if (is_caps_word_on()) { */

@@ -3,7 +3,9 @@
 #define MASTER_LEFT
 #define SPLIT_USB_DETECT
 
-/* #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD */
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define CAPS_WORD_INVERT_ON_SHIFT
+
 #define TAPPING_FORCE_HOLD
 // 150 still resulted in fi rolls instead of I, so reduce further to trigger shift more easily
 // 145 still had sk -> *
@@ -33,11 +35,21 @@
         #define SPLIT_OLED_ENABLE
         #define SPLIT_WPM_ENABLE
     /* #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c" */
-    #define OLED_FONT_H "keyboards/crkbd/rev1/keymaps/praxis/glcdfont.c"
+    #define OLED_FONT_H "keyboards/crkbd/keymaps/praxis/glcdfont.c"
         #define OLED_FADE_OUT
         #define OLED_FADE_OUT_INTERVAL 15
 #endif
 
+// abuse space cadet to get mod-tapping of $ and & on the sym layer to work
+#define LAPO_KEYS KC_LSFT, KC_LSFT, KC_4
+#define RAPC_KEYS KC_LSFT, KC_LSFT, KC_7
+
+// and also for the numpad 6 on the numbers layer
+#define RCPC_KEYS KC_LSFT, KC_LSFT, KC_6
+
+// and use left shift for the 'normal' space cadet on the math layer
+/* #define RSPC_MOD KC_LSFT */
+#define RSPC_KEYS KC_LSFT, KC_LSFT, KC_0
 
 // squeeze firmware size
 #define NO_ACTION_ONESHOT
